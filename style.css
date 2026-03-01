@@ -1,0 +1,67 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+:root {
+   /* ===== FONTS ===== */
+   --font-main: system-ui, sans-serif;
+   --font-accent: "Georgia", serif;
+
+   /* ===== GUNMETAL (dark theme) ===== */
+   --gunmetal-bg: #1f2a2e;
+   --gunmetal-surface: #26363b;
+   --gunmetal-text: #f2f4f3;
+
+   /* ===== CHAMPAGNE (light theme) ===== */
+   --champagne-bg: #f7e7ce;
+   --white-bg: #ffffff;
+   --champagne-surface: #fffaf3;
+   --champagne-text: #2c2c2c;
+   --champagne-shadow: rgba(160, 160, 160, 0.6);
+
+   /* ===== ACCENTS ===== */
+   --banana-cream: #fff2a6;
+   --deep-blueberry: #3b4cc0;
+   --warm-caramel: #c68b59;
+   --ice-mint: #d8fff3;
+
+   /* ===== Cards ===== */
+   --pastel-red: #ffd6d6;
+   --pastel-orange: #ffe5cc;
+   --pastel-yellow: #fff5cc;
+   --pastel-green: #d9f7d9;
+   --pastel-blue: #dbe9ff;
+   --pastel-indigo: #e3dcff;
+   --pastel-violet: #f1ddff;
+}
+
+/* ----- Style ----- */
+
+body {
+   font-family: var(--font-main);
+   background: var(--champagne-bg);
+   color: var(--champagne-text);
+}
+
+body.dark {
+   background: var(--gunmetal-bg);
+   color: var(--gunmetal-text);
+}
+
+main {
+   background-color: var(--white-bg);
+   border-radius: 1rem;
+}
+
+/* ----- Flex ----- */
+
+body {
+   display: flex;
+   justify-content: center;
+   padding: 3rem;
+}
+main {
+   width: min(700px, 100%);
+   padding: 0.5rem;
+}

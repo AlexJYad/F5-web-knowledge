@@ -1,0 +1,156 @@
+section {
+   display: flex;
+   width: 100%;
+   margin: 1fr;
+   justify-content: space-between;
+   margin: 1rem;
+}
+
+.--code {
+   width: 50%;
+   background-color: var(--gunmetal-bg);
+   color: var(--gunmetal-text);
+   border-radius: 0.5rem;
+}
+
+.--preview {
+   width: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.--element {
+   aspect-ratio: 1 / 1;
+   height: 5rem;
+   background-color: var(--warm-caramel);
+   border-radius: 0.5rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+/* Animation */
+
+.--element {
+   animation-duration: 5s;
+   animation-iteration-count: infinite;
+}
+
+.--opacity .--element {
+   animation-name: opacity;
+}
+
+@keyframes opacity {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+.--translate .--element {
+   animation-name: translate;
+}
+
+@keyframes translate {
+   from {
+      transform: translateX(0) translateY(0);
+      /* transform: translate(0, 0); */
+      /* Если указать только один аргумент, то второй считается 0 */
+   }
+   to {
+      transform: translateX(100px) translateY(-30px);
+      /* transform: translate(100px, -30px); */
+   }
+}
+
+.--slide .--preview,
+.--animation-timing-function .--preview {
+   display: flex;
+   flex-direction: column;
+   align-items: start;
+}
+
+.--slide .--element__normal {
+   background-color: var(--pastel-red);
+   animation-duration: 10s;
+   animation-name: slide;
+
+   animation-direction: normal;
+}
+
+.--slide .--element__reverse {
+   background-color: var(--pastel-orange);
+   animation-duration: 10s;
+   animation-name: slide;
+
+   animation-direction: reverse;
+}
+
+.--slide .--element__alternate {
+   background-color: var(--pastel-yellow);
+   animation-name: slide;
+   /* сначала вперёд, затем назад */
+   animation-direction: alternate;
+}
+
+.--slide .--element__alternate-reverse {
+   background-color: var(--pastel-green);
+   animation-name: slide;
+   /* сначала назад, затем вперёд */
+   animation-direction: alternate-reverse;
+}
+
+@keyframes slide {
+   from {
+      transform: translateX(0);
+   }
+   to {
+      transform: translateX(15rem);
+   }
+}
+
+/* animation-timing-function */
+.--animation-timing-function .--element__linear {
+   background-color: var(--pastel-red);
+   animation-name: slide;
+   animation-timing-function: linear;
+}
+
+.--animation-timing-function .--element__ease {
+   background-color: var(--pastel-orange);
+   animation-name: slide;
+   animation-timing-function: ease;
+}
+
+.--animation-timing-function .--element__ease-in {
+   background-color: var(--pastel-yellow);
+   animation-name: slide;
+   animation-timing-function: ease-in;
+}
+
+.--animation-timing-function .--element__ease-out {
+   background-color: var(--pastel-green);
+   animation-name: slide;
+   animation-timing-function: ease-out;
+}
+
+.--animation-timing-function .--element__ease-in-out {
+   background-color: var(--pastel-blue);
+   animation-name: slide;
+   animation-timing-function: ease-in-out;
+}
+
+.--animation-timing-function .--element__cubic-bezier {
+   background-color: var(--pastel-indigo);
+   animation-name: slide;
+   animation-timing-function: cubic-bezier(0.8, 1.5, 0.2, -1);
+}
+
+.--animation-timing-function .--element__staps {
+   background-color: var(--pastel-violet);
+   animation-name: slide;
+   animation-timing-function: steps(10, end);
+}

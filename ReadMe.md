@@ -15,13 +15,23 @@ Repositorio con mis apuntes sobre fundamentos y arquitectura de aplicaciones web
 - [6. SPA vs SSR vs SSG](./capitulo-1.md#6-spa-vs-ssr-vs-ssg)
 - [7. APIs en aplicaciones web](./capitulo-1.md#7-apis-en-aplicaciones-web)
 
-### Capítulo 2
-- TODO: próxima capítulo
+### Capítulo 2 — Herramientas y tecnologías modernas
+- [1. Ingeniería de prompts y Vibe Coding](./capitulo-2.md#1-ingenieria-de-prompts-y-vibe-coding)
+- [2. Visual Studio Code](./capitulo-2.md#2-visual-studio-code)
+- [3. Node.js, npm y package.json](./capitulo-2.md#3-nodejs-npm-y-packagejson)
+- [4. Vite y Hot Module Replacement](./capitulo-2.md#4-vite-y-hot-module-replacement)
+
 
 ### Capítulo 3
 - TODO: próxima capítulo
 
+### Ejercicios
+#### Parte 1
+- [Rastreo de una Web](./ejercicios-1.md#1rastreo-de-una-Web)
+- 
+
 ---
+
 
 ## Notas
 
