@@ -1,20 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- @keyframes colorChange {
-  0% {
-/* Красный цвет */
-    background-color: red; 
-  }
-  50% {
-/* Жёлтый цвет */
-    background-color: yellow; 
-  }
-  100% {
-/* Зелёный цвет */
-    background-color: green; 
-  }
-}
+<!-- 
 
 animation-delay
 
@@ -42,6 +29,7 @@ https://doka.guide/css/transform-function/demos/sandbox/
 
 <body>
    <main>
+      <!-- ===== BASE ===== -->
       <section>
          <div class="--code">
             <h2>Base</h2>
@@ -60,6 +48,10 @@ https://doka.guide/css/transform-function/demos/sandbox/
             </p>
          </div>
       </section>
+
+
+
+      <!-- ===== OPACITY ===== -->
       <section class="--opacity">
          <div class="--code">
             <h2>Opacity</h2>
@@ -85,19 +77,70 @@ https://doka.guide/css/transform-function/demos/sandbox/
          </div>
       </section>
 
-      <section class="--translate">
+
+
+      <!-- ===== COLOR ===== -->
+      <section class="--color">
          <div class="--code">
             <h2></h2>
+            <pre>
+               <code>
+@keyframes color {
+   0% {
+      background-color: var(--pastel-red);
+   }
+   16.5% {
+      background-color: var(--pastel-orange);
+   }
+   33% {
+      background-color: var(--pastel-yellow);
+   }
+   49.5% {
+      background-color: var(--pastel-green);
+   }
+   64% {
+      background-color: var(--pastel-blue);
+   }
+   78.5% {
+      background-color: var(--pastel-indigo);
+   }
+   93% {
+      background-color: var(--pastel-violet);
+   }
+}
+               </code>
+            </pre>
+         </div>
+         <div class="--preview">
+            <div class="--element"></div>
+         </div>
+      </section>
+
+
+
+
+      <section class="--translate">
+         <div class="--code">
+            <h2>Translate</h2>
             <pre>
                <code>
 @keyframes translate {
    from {
       transform: translateX(0) translateY(0);
-      /* o transform: translate(0, 0); */
    }
    to {
-      transform: translateX(100px) translateY(-30px);
-      /* o transform: translate(100px, -30px); */
+      transform: translateX(100px) translateY(-100px);
+   }
+}
+               </code>
+               <p> --- O --- </p>
+               <code>
+@keyframes translate {
+   from {
+      o transform: translate(0, 0);
+   }
+   to {
+      o transform: translate(100px, -100px);
    }
 }
                </code>
@@ -112,7 +155,6 @@ https://doka.guide/css/transform-function/demos/sandbox/
             <h2>animation-direction</h2>
             <pre>
                <code>
-
 .--slide .--element__normal {
    background-color: var(--banana-cream);
    animation-name: slide;

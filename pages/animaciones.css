@@ -23,7 +23,7 @@ section {
 .--element {
    aspect-ratio: 1 / 1;
    height: 5rem;
-   background-color: var(--warm-caramel);
+   background-color: var(--pastel-blue);
    border-radius: 0.5rem;
    display: flex;
    justify-content: center;
@@ -50,6 +50,34 @@ section {
    }
 }
 
+.--color .--element {
+   animation-name: color;
+}
+
+@keyframes color {
+   0% {
+      background-color: var(--pastel-red);
+   }
+   16.5% {
+      background-color: var(--pastel-orange);
+   }
+   33% {
+      background-color: var(--pastel-yellow);
+   }
+   49.5% {
+      background-color: var(--pastel-green);
+   }
+   64% {
+      background-color: var(--pastel-blue);
+   }
+   78.5% {
+      background-color: var(--pastel-indigo);
+   }
+   93% {
+      background-color: var(--pastel-violet);
+   }
+}
+
 .--translate .--element {
    animation-name: translate;
 }
@@ -57,12 +85,11 @@ section {
 @keyframes translate {
    from {
       transform: translateX(0) translateY(0);
-      /* transform: translate(0, 0); */
-      /* Если указать только один аргумент, то второй считается 0 */
    }
    to {
-      transform: translateX(100px) translateY(-30px);
+      transform: translateX(100px) translateY(-100px);
       /* transform: translate(100px, -30px); */
+      /* Если указать только один аргумент, то второй считается 0 */
    }
 }
 
