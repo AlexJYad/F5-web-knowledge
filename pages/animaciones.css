@@ -42,6 +42,26 @@ section > * {
 
 /* Animation */
 
+@keyframes typing {
+   from {
+      width: 0;
+   }
+   to {
+      width: 100%;
+   }
+}
+
+.base {
+   p {
+      border-right: 2px solid;
+      white-space: nowrap;
+      animation: typing 5s steps(100) forwards;
+      overflow: hidden;
+   }
+}
+
+/* main */
+
 .--element {
    animation-duration: 5s;
    animation-iteration-count: infinite;
@@ -250,7 +270,7 @@ section > * {
       animation-play-state: paused;
       animation-delay: 1s;
    }
-   .--element:active {
+   .--element.active {
       animation-play-state: running;
    }
    .--element:first-child {
@@ -311,5 +331,36 @@ section > * {
          skew 5s 15s,
          matrix 5s 20s forwards,
          color-b 30s both;
+      animation-play-state: paused;
    }
+   .--element.active {
+      animation-play-state: running;
+   }
+}
+
+/* dop */
+
+@keyframes loading {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
+}
+
+.loader {
+   border: 4px solid #eee;
+   border-top: 4px solid #3498db;
+   border-radius: 50%;
+   width: 40px;
+   height: 40px;
+   animation: loading 1s linear infinite;
+}
+
+.end {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 6rem;
 }

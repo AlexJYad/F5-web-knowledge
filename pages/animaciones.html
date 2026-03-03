@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- https://doka.guide/css/transform-function/demos/sandbox/ -->
+<!-- dop: https://doka.guide/css/transform-function/demos/sandbox/ -->
 
 <head>
    <meta charset="UTF-8">
@@ -15,12 +15,12 @@
    <main>
       <!-- ===== BASE ===== -->
       <div class="sectiones">
-         <section>
+         <section class="base">
             <div class="--code">
                <h2>Base</h2>
                <p>
-                  En adelante, para demostrar las animaciones utilizaré los siguientes
-                  parámetros del elemento como configuración base, siempre que no haya
+                  En adelante, <br>para demostrar las animaciones utilizaré los siguientes
+                  parámetros del elemento como configuración base, <br>siempre que no haya
                   una sobrescritura dentro del código.
                <pre>
                   <code>
@@ -353,10 +353,10 @@
                </pre>
             </div>
             <div class="--preview">
-               <div class="--element">none</div>
-               <div class="--element">forwards</div>
-               <div class="--element">backwards</div>
-               <div class="--element">both</div>
+               <div class="--element box">none</div>
+               <div class="--element box">forwards</div>
+               <div class="--element box">backwards</div>
+               <div class="--element box">both</div>
             </div>
          </section>
          <section class="--multi">
@@ -411,11 +411,26 @@
                </pre>
             </div>
             <div class="--preview">
-               <div class="--element"></div>
+               <div class="--element box"></div>
+            </div>
+         </section>
+
+
+
+         <section>
+            <div class="end">
+               <div class="loader"></div>
             </div>
          </section>
       </div>
    </main>
+   <script>
+      document.addEventListener("click", (e) => {
+         if (e.target.classList.contains("box")) {
+            e.target.classList.add("active");
+         }
+      });
+   </script>
 </body>
 
 </html>
