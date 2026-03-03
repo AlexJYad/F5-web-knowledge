@@ -1,20 +1,30 @@
+.sectiones {
+   display: flex;
+   width: 100%;
+   gap: 1rem;
+   flex-direction: column;
+}
+
 section {
    display: flex;
    width: 100%;
-   margin: 1fr;
-   justify-content: space-between;
-   margin: 1rem;
+   gap: 1.5rem;
+}
+
+section > * {
+   flex: 1;
 }
 
 .--code {
-   width: 50%;
    background-color: var(--gunmetal-bg);
    color: var(--gunmetal-text);
    border-radius: 0.5rem;
+   a {
+      color: var(--ice-mint);
+   }
 }
 
 .--preview {
-   width: 50%;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -51,10 +61,10 @@ section {
 }
 
 .--color .--element {
-   animation-name: color;
+   animation-name: color-b;
 }
 
-@keyframes color {
+@keyframes color-b {
    0% {
       background-color: var(--pastel-red);
    }
@@ -94,10 +104,18 @@ section {
 }
 
 .--slide .--preview,
-.--animation-timing-function .--preview {
+.--animation-timing-function .--preview,
+.--animation-delay .--preview,
+.--animation-play-state .--preview,
+.--animation-fill-mode .--preview {
    display: flex;
    flex-direction: column;
    align-items: start;
+}
+
+.--animation-delay .--preview {
+   align-items: center;
+   gap: 3rem;
 }
 
 .--slide .--element__normal {
@@ -135,7 +153,7 @@ section {
       transform: translateX(0);
    }
    to {
-      transform: translateX(15rem);
+      transform: translateX(20rem);
    }
 }
 
@@ -180,4 +198,118 @@ section {
    background-color: var(--pastel-violet);
    animation-name: slide;
    animation-timing-function: steps(10, end);
+}
+
+@keyframes rotate {
+   from {
+      transform: rotate(0);
+   }
+   to {
+      transform: rotate(calc(45deg * 3));
+   }
+}
+
+.--animation-delay .--element {
+   animation: 5s linear infinite;
+   animation-delay: 3s;
+   animation-name: rotate;
+}
+.--animation-delay .--element__back {
+   background-color: var(--pastel-indigo);
+   animation-delay: -3s;
+}
+
+.--animation-play-state {
+   .--element {
+      animation-duration: 10s;
+      animation-name: slide;
+      animation-play-state: running;
+   }
+
+   .--element:hover {
+      animation-play-state: paused;
+   }
+}
+
+@keyframes slide-on {
+   0% {
+      transform: translateX(10rem);
+   }
+   50% {
+      transform: translateX(0);
+   }
+   100% {
+      transform: translateX(20rem);
+   }
+}
+
+.--animation-fill-mode {
+   .--element {
+      animation-name: slide-on;
+      animation-iteration-count: 1;
+      animation-play-state: paused;
+      animation-delay: 1s;
+   }
+   .--element:active {
+      animation-play-state: running;
+   }
+   .--element:first-child {
+      background-color: var(--pastel-red);
+      animation-fill-mode: none;
+   }
+   .--element:nth-child(2) {
+      background-color: var(--pastel-orange);
+      animation-fill-mode: forwards;
+   }
+   .--element:nth-child(3) {
+      background-color: var(--pastel-yellow);
+      animation-fill-mode: backwards;
+   }
+   .--element:nth-child(4) {
+      background-color: var(--pastel-green);
+      animation-fill-mode: both;
+   }
+}
+
+@keyframes scale {
+   from {
+      transform: translateX(20rem);
+   }
+   to {
+      transform: scale(5);
+   }
+}
+
+@keyframes skew {
+   from {
+      transform: scale(5);
+   }
+   to {
+      transform: skew(30deg, 30deg);
+   }
+}
+
+@keyframes matrix {
+   0% {
+      transform: skew(30deg, 30deg);
+   }
+   50% {
+      transform: matrix(0.4, 0, 0.5, 1.2, 60, 10);
+   }
+   100% {
+      transform: matrix(0, 2, 1, 3, 2, 2);
+   }
+}
+
+.--multi .--preview {
+   justify-content: start;
+   .--element {
+      animation:
+         rotate 5s,
+         slide 5s 5s,
+         scale 5s 10s,
+         skew 5s 15s,
+         matrix 5s 20s forwards,
+         color-b 30s both;
+   }
 }

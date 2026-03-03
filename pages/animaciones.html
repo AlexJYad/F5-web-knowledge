@@ -1,23 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- 
-
-animation-delay
-
-animation-play-state
-
-animation-fill-mode
-
-  animation: 
-    spin1, 
-    spin2, 
-    spin3; 
-}
-
-
-https://doka.guide/css/transform-function/demos/sandbox/
-} -->
+<!-- https://doka.guide/css/transform-function/demos/sandbox/ -->
 
 <head>
    <meta charset="UTF-8">
@@ -30,214 +14,407 @@ https://doka.guide/css/transform-function/demos/sandbox/
 <body>
    <main>
       <!-- ===== BASE ===== -->
-      <section>
-         <div class="--code">
-            <h2>Base</h2>
-            <p>
-               En adelante, para demostrar las animaciones utilizaré los siguientes
-               parámetros del elemento como configuración base, siempre que no haya
-               una sobrescritura dentro del código.
-            <pre>
-               <code>
-.--element{
-   animation-duration: 5s;
-   animation-iteration-count: infinite;
-}
+      <div class="sectiones">
+         <section>
+            <div class="--code">
+               <h2>Base</h2>
+               <p>
+                  En adelante, para demostrar las animaciones utilizaré los siguientes
+                  parámetros del elemento como configuración base, siempre que no haya
+                  una sobrescritura dentro del código.
+               <pre>
+                  <code>
+   .--element{
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+   }
+                  </code>
+               </pre>
+               </p>
+            </div>
+         </section>
+         <!-- ===== OPACITY ===== -->
+         <section class="--opacity">
+            <div class="--code">
+               <h2>Opacity</h2>
+               <pre>
+                  <code>
+   .--opacity{
+      animation-name: opacity;
+   }
+   
+   @keyframes opacity {
+      from {
+   opacity: 0;
+      }
+      to {
+   opacity: 1;
+      }
+   }
+                  </code>
+               </pre>
+            </div>
+            <div class="--preview">
+               <div class="--element"></div>
+            </div>
+         </section>
+         <!-- ===== COLOR ===== -->
+         <section class="--color">
+            <div class="--code">
+               <h2>Color</h2>
+               <pre>
+                  <code>
+   @keyframes color {
+      0% {
+         background-color: var(--pastel-red);
+      }
+      16.5% {
+         background-color: var(--pastel-orange);
+      }
+      33% {
+         background-color: var(--pastel-yellow);
+      }
+      49.5% {
+         background-color: var(--pastel-green);
+      }
+      64% {
+         background-color: var(--pastel-blue);
+      }
+      78.5% {
+         background-color: var(--pastel-indigo);
+      }
+      93% {
+         background-color: var(--pastel-violet);
+      }
+   }
                </code>
             </pre>
-            </p>
-         </div>
-      </section>
-
-
-
-      <!-- ===== OPACITY ===== -->
-      <section class="--opacity">
-         <div class="--code">
-            <h2>Opacity</h2>
-            <pre>
+            </div>
+            <div class="--preview">
+               <div class="--element"></div>
+            </div>
+         </section>
+         <section class="--translate">
+            <div class="--code">
+               <h2>Translate</h2>
+               <pre>
                <code>
-.--opacity{
-   animation-name: opacity;
-}
-
-@keyframes opacity {
-   from {
-      opacity: 0;
+   @keyframes translate {
+      from {
+         transform: translateX(0)
+         translateY(0);
+      }
+      to {
+         transform: translateX(100px) 
+         translateY(-100px);
+      }
    }
-   to {
-      opacity: 1;
+            </code>
+            <p> --- O --- </p>
+            <code>
+   @keyframes translate {
+      from {
+         transform: translate(0, 0);
+      }
+      to {
+         transform: translate(100px, -100px);
+      }
    }
-}
                </code>
             </pre>
-         </div>
-         <div class="--preview">
-            <div class="--element"></div>
-         </div>
-      </section>
-
-
-
-      <!-- ===== COLOR ===== -->
-      <section class="--color">
-         <div class="--code">
-            <h2></h2>
-            <pre>
+            </div>
+            <div class="--preview">
+               <div class="--element"></div>
+            </div>
+         </section>
+         <section class="--slide">
+            <div class="--code">
+               <h2>Animation direction</h2>
+               <pre>
                <code>
-@keyframes color {
-   0% {
+   @keyframes slide {
+      from {
+         transform: translateX(0);
+      }
+      to {
+         transform: translateX(15rem);
+      }
+   }
+
+   .--slide .--element__normal {
+      background-color: var(--banana-cream);
+      animation-name: slide;
+   
+      animation-direction: normal;
+   }
+   
+   .--slide .--element__reverse {
+      background-color: var(--deep-blueberry);
+      animation-name: slide;
+   
+      animation-direction: reverse;
+   }
+   
+   .--slide .--element__alternate {
+      background-color: var(--warm-caramel);
+      animation-name: slide;
+   
+      animation-direction: alternate;
+   }
+   
+   .--slide .--element__alternate-reverse {
+      background-color: var(--ice-mint);
+      animation-name: slide;
+   
+      animation-direction: alternate-reverse;
+   }
+                  </code>
+               </pre>
+            </div>
+            <div class="--preview">
+               <div class="--element --element__normal">normal</div>
+               <div class="--element --element__reverse">reverse</div>
+               <div class="--element --element__alternate">alternate</div>
+               <div class="--element --element__alternate-reverse">alternate-reverse</div>
+            </div>
+         </section>
+         <!-- animation-timing-function -->
+         <section class="--animation-timing-function">
+            <div class="--code">
+               <h2>Animation timing function</h2>
+               <pre>
+                  <code>
+   .--animation-timing-function 
+   .--element__linear {
       background-color: var(--pastel-red);
+      animation-name: slide;
+      animation-timing-function: linear;
    }
-   16.5% {
+
+   .--animation-timing-function 
+   .--element__ease {
       background-color: var(--pastel-orange);
+      animation-name: slide;
+      animation-timing-function: ease;
    }
-   33% {
+
+   .--animation-timing-function 
+   .--element__ease-in {
       background-color: var(--pastel-yellow);
+      animation-name: slide;
+      animation-timing-function: ease-in;
    }
-   49.5% {
+
+   .--animation-timing-function 
+   .--element__ease-out {
       background-color: var(--pastel-green);
+      animation-name: slide;
+      animation-timing-function: ease-out;
    }
-   64% {
+
+   .--animation-timing-function 
+   .--element__ease-in-out {
       background-color: var(--pastel-blue);
+      animation-name: slide;
+      animation-timing-function: ease-in-out;
    }
-   78.5% {
+
+   .--animation-timing-function 
+   .--element__cubic-bezier {
       background-color: var(--pastel-indigo);
+      animation-name: slide;
+      animation-timing-function: 
+         cubic-bezier(0.8, 1.5, 0.2, -1);
    }
-   93% {
+
+   .--animation-timing-function 
+   .--element__staps {
       background-color: var(--pastel-violet);
+      animation-name: slide;
+      animation-timing-function: steps(10, end);
    }
-}
-               </code>
-            </pre>
-         </div>
-         <div class="--preview">
-            <div class="--element"></div>
-         </div>
-      </section>
-
-
-
-
-      <section class="--translate">
-         <div class="--code">
-            <h2>Translate</h2>
-            <pre>
-               <code>
-@keyframes translate {
-   from {
-      transform: translateX(0) translateY(0);
+                  </code>
+               </pre>
+               <p><a href="https://cubic-bezier.com/">cubic-bezier helper</a></p>
+            </div>
+            <div class="--preview">
+               <div class="--element --element__linear">linear</div>
+               <div class="--element --element__ease">ease</div>
+               <div class="--element --element__ease-in">ease-in</div>
+               <div class="--element --element__ease-out">ease-out</div>
+               <div class="--element --element__ease-in-out">ease-in-out</div>
+               <div class="--element --element__cubic-bezier">cubic-bezier</div>
+               <div class="--element --element__staps">staps</div>
+            </div>
+         </section>
+         <section class="--animation-delay">
+            <div class="--code">
+               <h2>Animation delay</h2>
+               <pre>
+                  <code>
+   @keyframes delay-rotate {
+      from {
+         transform: rotate(0);
+      }
+      to {
+         transform: rotate(calc(45deg * 3));
+      }
    }
-   to {
-      transform: translateX(100px) translateY(-100px);
+
+   .--animation-delay .--element {
+      animation: 5s linear infinite;
+      animation-delay: 3s;
+      animation-name: delay-rotate;
    }
-}
-               </code>
-               <p> --- O --- </p>
-               <code>
-@keyframes translate {
-   from {
-      o transform: translate(0, 0);
+   .--animation-delay .--element__back {
+      background-color: var(--pastel-indigo);
+      animation-delay: -3s;
    }
-   to {
-      o transform: translate(100px, -100px);
+                  </code>
+               </pre>
+            </div>
+            <div class="--preview">
+               <div class="--element">3s</div>
+               <div class="--element --element__back">-3s</div>
+            </div>
+         </section>
+
+
+         <section class="--animation-play-state">
+            <div class="--code">
+               <h2>Animation Play State</h2>
+               <pre>
+                  <code>
+   .--animation-play-state {
+      .--element {
+         animation-duration: 10s;
+         animation-name: slide;
+         animation-play-state: running;
+      }
+
+      .--element:hover {
+         animation-play-state: paused;
+      }
    }
-}
-               </code>
-            </pre>
-         </div>
-         <div class="--preview">
-            <div class="--element"></div>
-         </div>
-      </section>
-      <section class="--slide">
-         <div class="--code">
-            <h2>animation-direction</h2>
-            <pre>
-               <code>
-.--slide .--element__normal {
-   background-color: var(--banana-cream);
-   animation-name: slide;
+                  </code>
+               </pre>
+            </div>
+            <div class="--preview">
+               <div class="--element"></div>
+            </div>
+         </section>
 
-   animation-direction: normal;
-}
 
-.--slide .--element__reverse {
-   background-color: var(--deep-blueberry);
-   animation-name: slide;
-
-   animation-direction: reverse;
-}
-
-.--slide .--element__alternate {
-   background-color: var(--warm-caramel);
-   animation-name: slide;
-
-   animation-direction: alternate;
-}
-
-.--slide .--element__alternate-reverse {
-   background-color: var(--ice-mint);
-   animation-name: slide;
-
-   animation-direction: alternate-reverse;
-}
-
-@keyframes slide {
-   from {
-      transform: translateX(0);
+         <section class="--animation-fill-mode">
+            <div class="--code">
+               <h2>Animation Fill Mode</h2>
+               <pre>
+                  <code>
+   @keyframes slide-on {
+      0% {
+         transform: translateX(10rem);
+      }
+      50% {
+         transform: translateX(0);
+      }
+      100% {
+         transform: translateX(20rem);
+      }
    }
-   to {
-      transform: translateX(100px);
-   }
-}
-               </code>
-            </pre>
-         </div>
-         <div class="--preview">
-            <div class="--element --element__normal">normal</div>
-            <div class="--element --element__reverse">reverse</div>
-            <div class="--element --element__alternate">alternate</div>
-            <div class="--element --element__alternate-reverse">alternate-reverse</div>
-         </div>
-      </section>
 
-      <!-- animation-timing-function -->
-      <section class="--animation-timing-function">
-         <div class="--code">
-            <h2></h2>
-            <p><a href="https://cubic-bezier.com/">cubic-bezier helper</a></p>
-            <pre>
-               <code>
-@keyframes translate {}
-               </code>
-            </pre>
-         </div>
-         <div class="--preview">
-            <div class="--element --element__linear">linear</div>
-            <div class="--element --element__ease">ease</div>
-            <div class="--element --element__ease-in">ease-in</div>
-            <div class="--element --element__ease-out">ease-out</div>
-            <div class="--element --element__ease-in-out">ease-in-out</div>
-            <div class="--element --element__cubic-bezier">cubic-bezier</div>
-            <div class="--element --element__staps">staps</div>
-         </div>
-      </section>
-      <!-- 
-      <section class="--N">
-         <div class="--code">
-            <h2></h2>
-            <pre>
-               <code>
-@keyframes translate {}
-               </code>
-            </pre>
-         </div>
-         <div class="--preview">
-            <div class="--element"></div>
-         </div>
-      </section> 
-      -->
+   .--animation-fill-mode {
+      .--element {
+         animation-name: slide-on;
+         animation-iteration-count: 1;
+         animation-play-state: paused;
+         animation-delay: 1s;
+      }
+      .--element:active {
+         animation-play-state: running;
+      }
+      .--element:first-child {
+         background-color: var(--pastel-red);
+         animation-fill-mode: none;
+      }
+      .--element:nth-child(2) {
+         background-color: var(--pastel-orange);
+         animation-fill-mode: forwards;
+      }
+      .--element:nth-child(3) {
+         background-color: var(--pastel-yellow);
+         animation-fill-mode: backwards;
+      }
+      .--element:nth-child(4) {
+         background-color: var(--pastel-green);
+         animation-fill-mode: both;
+      }
+   }
+                  </code>
+               </pre>
+            </div>
+            <div class="--preview">
+               <div class="--element">none</div>
+               <div class="--element">forwards</div>
+               <div class="--element">backwards</div>
+               <div class="--element">both</div>
+            </div>
+         </section>
+         <section class="--multi">
+            <div class="--code">
+               <h2>Multi Animation</h2>
+               <pre>
+                  <code>
+   @keyframes scale {
+      from {
+         transform: translateX(20rem);
+      }
+      to {
+         transform: scale(5);
+      }
+   }
+
+   @keyframes skew {
+      from {
+         transform: scale(5);
+      }
+      to {
+         transform: skew(30deg, 30deg);
+      }
+   }
+
+   @keyframes matrix {
+      0% {
+         transform: skew(30deg, 30deg);
+      }
+      50% {
+         transform: 
+            matrix(0.4, 0, 0.5, 1.2, 60, 10);
+      }
+      100% {
+         transform: matrix(0, 2, 1, 3, 2, 2);
+      }
+   }
+
+   .--multi .--preview {
+      justify-content: start;
+      .--element {
+         animation:
+            rotate 5s,
+            slide 5s 5s,
+            scale 5s 10s,
+            skew 5s 15s,
+            matrix 5s 20s forwards,
+            color-b 30s both;
+      }
+   }
+                  </code>
+               </pre>
+            </div>
+            <div class="--preview">
+               <div class="--element"></div>
+            </div>
+         </section>
+      </div>
    </main>
 </body>
 
