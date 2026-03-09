@@ -1,7 +1,5 @@
 # Apuntes de Desarrollo Web
 
----
-
 ## 1. Ciclo de vida de una petición HTTP/3
 
 Cuando el usuario escribe la dirección de un sitio en el navegador, comienza una cadena de acciones de red entre el **cliente (navegador)** y el **servidor**.
@@ -19,11 +17,13 @@ Cuando el usuario escribe la dirección de un sitio en el navegador, comienza un
 ### Roles
 
 **Cliente (Browser)**
+
 - Solicita el recurso
 - Envía headers y cookies
 - Muestra la respuesta
 
 **Servidor**
+
 - Recibe la petición
 - Ejecuta la lógica
 - Devuelve los datos
@@ -32,12 +32,15 @@ Cuando el usuario escribe la dirección de un sitio en el navegador, comienza un
 
 User → Browser → DNS → Server → Response → Browser → Render
 
+---
+
 ## 2. Frontend vs Backend
 
 **Frontend** — la parte de la aplicación que ve el usuario.  
 Es la interfaz del sitio: botones, texto, animaciones y formularios.
 
 Tecnologías:
+
 - HTML
 - CSS
 - JavaScript
@@ -50,12 +53,15 @@ Ejemplo: un landing page de una sola página con información sobre un producto.
 Se encarga de procesar datos y la lógica del sitio.
 
 Funciones:
+
 - procesamiento de formularios
 - autenticación
 - trabajo con base de datos
 - filtrado de productos
 
 Ejemplo: una tienda online donde los productos vienen de una base de datos.
+
+---
 
 ## 3. DNS (Domain Name System)
 
@@ -81,11 +87,119 @@ Después de esto, el navegador obtiene la IP y se conecta al servidor.
 
 El objetivo del DNS es evitar que los usuarios tengan que memorizar direcciones IP.
 
+---
 
 ## 4. Hosting: Tradicional vs Cloud vs Serverless
 
-> TODO: explicar diferencias y casos de uso
+### 🖥️ Traditional Hosting
 
+El sitio web funciona en **un único servidor** que está siempre activo.
+
+```mermaid
+graph TD
+User --> Internet
+Internet --> Server
+Server --> Website
+Server --> Backend
+Server --> Database
+```
+
+#### Ejemplos de servicios
+
+- Hostinger
+- Bluehost
+- OVH
+- DigitalOcean (VPS)
+- servidores con Apache o Nginx
+
+#### Ventajas
+
+- control total del servidor
+- concepto simple
+- compatible con cualquier tecnología
+
+#### Desventajas
+
+- hay que administrar el servidor
+- escalar es difícil
+- si el servidor falla, el sitio cae
+
+### ☁️ Cloud Hosting
+
+El sitio funciona en **varios servidores conectados (cluster)**.
+
+```mermaid
+graph TD
+User --> Internet
+Internet --> Cloud
+Cloud --> Server1
+Cloud --> Server2
+Cloud --> Server3
+Cloud --> Storage
+```
+
+#### Ejemplos de servicios
+
+- AWS (Amazon Web Services)
+- Google Cloud
+- Microsoft Azure
+- DigitalOcean App Platform
+- Heroku
+
+#### Ventajas
+
+- alta disponibilidad
+- fácil escalabilidad
+- balanceo de carga
+
+#### Desventajas
+
+- configuración más compleja
+- puede ser más caro
+- requiere entender la infraestructura
+
+### Serverless Hosting
+
+No gestionas servidores.\
+La plataforma ejecuta **funciones solo cuando hay una petición**.
+
+```mermaid
+graph TD
+User --> Platform
+Platform --> Function
+Function --> Response
+```
+
+#### Ejemplos de servicios
+
+- Vercel
+- Netlify
+- Cloudflare Workers
+- AWS Lambda
+- Firebase Functions
+
+#### Ventajas
+
+- no hay que administrar servidores
+- escalado automático
+- barato para proyectos pequeños
+- ideal para frontend moderno
+
+#### Desventajas
+
+- límites de ejecución
+- posible cold start
+- no siempre ideal para backends grandes
+
+### Comparación rápida
+
+| Modelo      | Servidor propio | Escalabilidad | Complejidad |
+| ----------- | --------------- | ------------- | ----------- |
+| Traditional | Sí              | Baja          | Baja        |
+| Cloud       | Parcial         | Alta          | Media       |
+| Serverless  | No              | Automática    | Baja        |
+
+---
 
 ## 5. CDN y Edge Computing
 
@@ -96,11 +210,10 @@ El objetivo del DNS es evitar que los usuarios tengan que memorizar direcciones 
 ## 6. SPA vs SSR vs SSG
 
 | Tipo | Qué es | Ventajas | Desventajas | Uso típico |
-|-----|------|------|------|------|
-| SPA | | | | |
-| SSR | | | | |
-| SSG | | | | |
-
+| ---- | ------ | -------- | ----------- | ---------- |
+| SPA  |        |          |             |            |
+| SSR  |        |          |             |            |
+| SSG  |        |          |             |            |
 
 ## 7. APIs en aplicaciones web
 
