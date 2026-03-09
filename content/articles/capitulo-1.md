@@ -220,11 +220,7 @@ Red de servidores que entrega **archivos estáticos** desde el nodo más cercano
 #### Esquema
 
 ```mermaid
-User
-▼
-CDN Node
-▼
-Origin Server
+User --> CDN Node --> Origin Server
 ```
 
 #### Ejemplos
@@ -268,25 +264,77 @@ Run Code --> Response
 ```mermaid
 User --> CDN
 CDN --> Edge Functions
-Edge Functions --> Backend / Database
+Edge Functions --> Back[Backend\nDatabase]
 ```
 
 ---
 
 ## 6. SPA vs SSR vs SSG
 
-| Tipo | Qué es | Ventajas | Desventajas | Uso típico |
-| ---- | ------ | -------- | ----------- | ---------- |
-| SPA  |        |          |             |            |
-| SSR  |        |          |             |            |
-| SSG  |        |          |             |            |
+### SPA (Single Page Application)
+
+- **Qué es:** Todo en una sola página HTML, los datos se cargan vía API.
+- **Ventajas:** Transiciones rápidas entre páginas, ideal para aplicaciones interactivas.
+- **Desventajas:** Primera carga lenta, SEO limitado sin configuración adicional.
+- **Ejemplos:** React SPA, Gmail, Trello.
+
+### SSR (Server-Side Rendering)
+
+- **Qué es:** HTML generado en el servidor en cada solicitud, JS "activa" la página en el navegador.
+- **Ventajas:** Carga inicial rápida, SEO-friendly.
+- **Desventajas:** Mayor carga en el servidor, cada solicitud requiere renderizado.
+- **Ejemplos:** Next.js con SSR, sitios antiguos en PHP/ASP.
+
+### SSG (Static Site Generation)
+
+- **Qué es:** HTML generado previamente durante la construcción del proyecto, se publica como sitio estático.
+- **Ventajas:** Carga muy rápida, SEO óptimo, mínima carga en el servidor.
+- **Desventajas:** No apto para contenido que cambia con frecuencia.
+- **Ejemplos:** Next.js con SSG, Gatsby, blogs, documentación.
+
+#### Esquema de funcionamiento
+
+```mermaid
+flowchart
+
+subgraph SPA [SPA]
+   subgraph Build [ ]
+      HTMLJS["HTML<br>JS"] <-.- WB@{ shape: "braces", label: "Solo uno download"}
+   end
+   Build --> |API| Ser[Server] --> JSON
+
+end
+
+subgraph SSR [SSR]
+   Nav[Browser]
+   Solicitud --> Servidor
+   Servidor --> HTMLs[página HTML]
+   HTMLs[página HTML] --> Nav
+end
+
+subgraph SSG[SSG]
+   StaticHTML[Archivos HTML]
+	subgraph Build2 [Build]
+	   BuildT[Build time]
+      HTML[HTML estático]
+      BuildT --> HTML[HTML estático]
+	end
+   Build2 --> StaticHTML --> Browser
+end
+
+SPA -.- SSR -.- SSG
+```
+
+#### Comparativa: SPA vs SSR vs SSG
+
+| Tipo    | Ventajas                                                         | Desventajas                                                     | Ejemplos                                      |
+| ------- | ---------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------- |
+| **SPA** | Transiciones rápidas entre páginas; ideal para apps interactivas | Primera carga lenta; SEO limitado sin configuración adicional   | React SPA, Gmail, Trello                      |
+| **SSR** | Carga inicial rápida; SEO-friendly                               | Mayor carga en el servidor; cada solicitud requiere renderizado | Next.js con SSR, sitios antiguos en PHP/ASP   |
+| **SSG** | Carga muy rápida; SEO óptimo; mínima carga en el servidor        | No apto para contenido dinámico frecuente                       | Next.js con SSG, Gatsby, blogs, documentación |
 
 ## 7. APIs en aplicaciones web
 
 > TODO: explicar el papel de las APIs
 
 ---
-
-```
-
-```
