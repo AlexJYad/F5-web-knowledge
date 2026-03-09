@@ -30,13 +30,22 @@ Cuando el usuario escribe la dirección de un sitio en el navegador, comienza un
 
 ### Diagrama
 
-User → Browser → DNS → Server → Response → Browser → Render
+```mermaid
+   flowchart TD
+   User --> Browser
+   Browser --> DNS
+   DNS --> Server
+   Server --> Response
+   Response --> Browser
+   Browser --> Render
+
+```
 
 ---
 
 ## 2. Frontend vs Backend
 
-**Frontend** — la parte de la aplicación que ve el usuario.  
+**Frontend** — la parte de la aplicación que ve el usuario.
 Es la interfaz del sitio: botones, texto, animaciones y formularios.
 
 Tecnologías:
@@ -49,7 +58,7 @@ Ejemplo: un landing page de una sola página con información sobre un producto.
 
 ---
 
-**Backend** — la parte del servidor, invisible para el usuario.  
+**Backend** — la parte del servidor, invisible para el usuario.
 Se encarga de procesar datos y la lógica del sitio.
 
 Funciones:
@@ -203,7 +212,64 @@ Function --> Response
 
 ## 5. CDN y Edge Computing
 
-> TODO: explicar qué es CDN y ventajas del Edge Computing
+### CDN (Content Delivery Network)
+
+**Definición:**  
+Red de servidores que entrega **archivos estáticos** desde el nodo más cercano al usuario.
+
+#### Esquema
+
+```mermaid
+User
+▼
+CDN Node
+▼
+Origin Server
+```
+
+#### Ejemplos
+
+- Cloudflare
+- Akamai
+- Amazon CloudFront
+- Fastly
+
+---
+
+### Edge Computing
+
+**Definición:**  
+Ejecución de **código cercano al usuario** para reducir latencia.
+
+#### Esquema
+
+```mermaid
+User --> Edge Server
+Edge Server --> Run Code
+Run Code --> Response
+```
+
+#### Ejemplos
+
+- Cloudflare Workers
+- Vercel Edge Functions
+- Netlify Edge Functions
+- Fastly Compute@Edge
+
+#### Diferencia clave
+
+| Tecnología     | Función                           |
+| -------------- | --------------------------------- |
+| CDN            | distribuir archivos estáticos     |
+| Edge Computing | ejecutar código cerca del usuario |
+
+## Arquitectura web moderna
+
+```mermaid
+User --> CDN
+CDN --> Edge Functions
+Edge Functions --> Backend / Database
+```
 
 ---
 
@@ -220,3 +286,7 @@ Function --> Response
 > TODO: explicar el papel de las APIs
 
 ---
+
+```
+
+```
