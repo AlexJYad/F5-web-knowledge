@@ -295,25 +295,30 @@ Edge --> Back[Backend\nDatabase]
 
 #### Esquema de funcionamiento
 
-```mermaid
-flowchart
+##### **SPA**
 
-subgraph SPA [SPA]
+```mermaid
+flowchart SPA
    subgraph Build [ ]
       HTMLJS["HTML<br>JS"] <-.- WB@{ shape: "braces", label: "Solo uno download"}
    end
    Build --> |API| Ser[Server] --> JSON
+```
 
-end
+##### **SSR**
 
-subgraph SSR [SSR]
+```mermaid
+flowchart SSR
    Nav[Browser]
    Solicitud --> Servidor
    Servidor --> HTMLs[página HTML]
    HTMLs[página HTML] --> Nav
-end
+```
 
-subgraph SSG[SSG]
+##### SSG
+
+```mermaid
+flowchart SSG
    StaticHTML[Archivos HTML]
 	subgraph Build2 [Build]
 	   BuildT[Build time]
@@ -321,9 +326,6 @@ subgraph SSG[SSG]
       BuildT --> HTML[HTML estático]
 	end
    Build2 --> StaticHTML --> Browser
-end
-
-SPA -.- SSR -.- SSG
 ```
 
 #### Comparativa: SPA vs SSR vs SSG
