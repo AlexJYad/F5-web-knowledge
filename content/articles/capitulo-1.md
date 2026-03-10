@@ -32,13 +32,20 @@ Cuando el usuario escribe la dirección de un sitio en el navegador, comienza un
 
 ```mermaid
 flowchart TD
-   User --> Browser
-   Browser --> DNS
-   DNS --> Server
-   Server --> Response
-   Response --> Browser
-   Browser --> Render
+   A(👤 User)
+   B(🧭 Browser)
+   C(🗄️ Server)
+   D(📤 Response)
+   E(🖼️ Render)
 
+   A --> B
+   B --> |Consulta DNS para IP del servidor| C
+   C --> D
+   D --> B
+   B --> E
+
+   classDef styleNods color:#FFFFFF, fill:#333333
+   class A,B,C,D,E,F styleNods
 ```
 
 ---
@@ -106,11 +113,21 @@ El sitio web funciona en **un único servidor** que está siempre activo.
 
 ```mermaid
 flowchart TD
-   User --> Internet
-   Internet --> Server
-   Server --> Website
-   Server --> Backend
-   Server --> Database
+   A(👤 User)
+   B(🌐 Internet)
+   C(🗄️ Server)
+   D(🖥️ Website)
+   E(🛠️ Backend)
+   F(💾 Database)
+
+   A --> B
+   B --> C
+   C --> D
+   C --> E
+   C --> F
+
+   classDef styleNods color:#FFFFFF, fill:#333333
+   class A,B,C,D,E,F styleNods
 ```
 
 #### Ejemplos de servicios
@@ -139,12 +156,26 @@ El sitio funciona en **varios servidores conectados (cluster)**.
 
 ```mermaid
 flowchart LR
-   User --> Internet
-   Internet --> Cloud
-   Cloud --> Server1
-   Cloud --> Server2
-   Cloud --> Server3
-   Cloud --> Storage
+   A(👤 User)
+   B(🌐 Internet)
+   C(☁️ Cloud)
+   D(🗄️ Server 1)
+   E(🗄️ Server 2)
+   F(🗄️ Server 3)
+   G(💽 Storage)
+
+   A --> B
+   B --> C
+
+   subgraph LR sb[Cloud Services]
+      C --> D
+      C --> E
+      C --> F
+      C --> G
+   end
+
+   classDef styleNods color:#FFFFFF, fill:#333333
+   class A,B,C,D,E,F,G styleNods
 ```
 
 #### Ejemplos de servicios
@@ -174,9 +205,17 @@ La plataforma ejecuta **funciones solo cuando hay una petición**.
 
 ```mermaid
 flowchart LR
-   User --> Platform
-   Platform --> Function
-   Function --> Response
+   A(👤 User)
+   B(💻 Platform)
+   C(⚙️ Function)
+   D(📤 Response)
+
+   A --> B
+   B --> C
+   C --> D
+
+   classDef styleNods color:#FFFFFF, fill:#333333
+   class A,B,C,D,E,F,G styleNods
 ```
 
 #### Ejemplos de servicios
@@ -221,10 +260,15 @@ Red de servidores que entrega **archivos estáticos** desde el nodo más cercano
 
 ```mermaid
 flowchart LR
-   CDN[CDN Node]
-   O[Origin Server]
-   User --> CDN
-   CDN --> O
+   A(👤 User)
+   B(📡 CDN Node)
+   C(🗄️ Origin Server)
+
+   A --> B
+   B --> C
+
+   classDef styleNods color:#FFFFFF, fill:#333333
+   class A,B,C,D,E,F,G styleNods
 ```
 
 #### Ejemplos
@@ -245,12 +289,17 @@ Ejecución de **código cercano al usuario** para reducir latencia.
 
 ```mermaid
 flowchart LR
-   Run[Run Code]
-   Edge[Edge Server]
+   A(👤 User)
+   B(⚡ Edge Server)
+   C(🏃 Run Code)
+   D(📤 Response)
 
-   User --> Edge
-   Edge --> Run
-   Run --> Response
+   A --> B
+   B --> C
+   C --> D
+
+   classDef styleNods color:#FFFFFF, fill:#333333
+   class A,B,C,D,E,F,G styleNods
 ```
 
 #### Ejemplos
@@ -271,9 +320,17 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-User --> CDN
-CDN --> Edge[Edge Functions]
-Edge --> Back[Backend<br>Database]
+   A(👤 User)
+   B(📡 CDN)
+   C(⚡ Edge Functions)
+   D(🛠️ Backend\n💾 Database)
+
+   A --> B
+   B --> C
+   C --> D
+
+   classDef styleNods color:#FFFFFF, fill:#333333
+   class A,B,C,D,E,F,G styleNods
 ```
 
 ---
@@ -306,35 +363,58 @@ Edge --> Back[Backend<br>Database]
 ##### **SPA**
 
 ```mermaid
-flowchart LR
-   subgraph Build [ ]
-      HTMLJS["HTML<br>JS"] <-.- WB@{ shape: "braces", label: "Solo uno download"}
+flowchart TD
+   B(📝 HTML<br>JS)
+   C@{label: "📦 Solo uno download", shape: braces}
+   D(🗄️ Server)
+   E(📄 JSON)
+
+   subgraph Aa[Build Fend]
+      B <-.- C
    end
-   Build --> |API| Ser[Server] --> JSON
+
+   Aa --> |API| D
+   D --> E
+
+   classDef styleNods color:#FFFFFF, fill:#333333
+   class A,B,C,D,E,F,G styleNods
+   style Aa color:#FFFFFF,fill:#A6A6A6
 ```
 
 ##### **SSR**
 
 ```mermaid
 flowchart LR
-   Nav[Browser]
-   Solicitud --> Servidor
-   Servidor --> HTMLs[página HTML]
-   HTMLs[página HTML] --> Nav
+   A(📥 Request)
+   B(🗄️ Server)
+   C(🖥️ HTML Page)
+   D(🧭 Browser)
+
+   A --> B
+   B --> C
+   C --> D
+
+   classDef styleNods color:#FFFFFF, fill:#333333
+   class A,B,C,D,E,F,G styleNods
 ```
 
 ##### **SSG**
 
 ```mermaid
 flowchart TD
-   StaticHTML[Archivos HTML]
-	subgraph Build2 [Build]
-	   BuildT[Build time]
-      HTML[HTML estático]
-      BuildT --> HTML[HTML estático]
+   A(⏱️ Build time)
+   B(📄 Static HTML)
+   C(🗂️ HTML files)
+   D(🧭 Browser)
+	subgraph Aa [Build]
+      A --> B
 	end
-   Build2 --> StaticHTML
-   StaticHTML --> Browser
+   Aa --> C
+   C --> D
+
+   classDef styleNods color:#FFFFFF, fill:#333333
+   class A,B,C,D,E,F,G styleNods
+   style Aa color:#FFFFFF,fill:#A6A6A6
 ```
 
 #### Comparativa: SPA vs SSR vs SSG
@@ -359,17 +439,20 @@ Normalmente la comunicación ocurre mediante **peticiones HTTP**, y los datos se
 
 ```mermaid
 flowchart LR
-    A[Browser / Frontend]
-    B[API]
-    C[Server Logic]
-    D[Database]
+   A(🧭 Browser / Frontend)
+   B(🔗 API)
+   C(🏭 Server Logic)
+   D(💾 Database)
 
-    A -->|HTTP Request| B
-    B --> C
-    C --> D
-    D --> C
-    C -->|JSON Response| B
-    B --> A
+   A -->|HTTP Request| B
+   B --> C
+   C --> D
+   D --> C
+   C -->|JSON Response| B
+   B --> A
+
+   classDef styleNods color:#FFFFFF, fill:#333333
+   class A,B,C,D,E,F,G styleNods
 ```
 
 ### Ejemplo de petición
@@ -402,18 +485,29 @@ Respuesta del servidor:
 
 ```mermaid
 flowchart LR
-   A[Web App]
-   B[Mobile App]
-   C[Admin Panel]
-   D[API]
-   E[Server]
-   F[Database]
+    subgraph Aa[Frontend]
+        A(🖥️ Web App)
+        B(📱 Mobile App)
+        C(👨‍💻 Admin Panel)
+    end
+
+    D(🔗 API)
+
+    subgraph Ba[Backend]
+        E(🗄️ Server)
+        F(💾 Database)
+    end
 
    A --> D
    B --> D
    C --> D
    D --> E
    E --> F
+
+   classDef styleNods color:#FFFFFF, fill:#333333
+   class A,B,C,D,E,F,G styleNods
+   classDef styleSub color:#FFFFFF,fill:#A6A6A6
+   class Aa,Ba styleSub
 ```
 
 Idea: un solo API puede servir varios clientes (web, aplicación móvil, panel de administración).
