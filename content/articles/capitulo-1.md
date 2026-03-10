@@ -220,8 +220,11 @@ Red de servidores que entrega **archivos estáticos** desde el nodo más cercano
 #### Esquema
 
 ```mermaid
-User --> CDN[CDN Node]
-CDN --> Origin Server
+flowchart
+CDN[CDN Node]
+O[Origin Server]
+User --> CDN
+CDN --> O
 ```
 
 #### Ejemplos
@@ -241,8 +244,12 @@ Ejecución de **código cercano al usuario** para reducir latencia.
 #### Esquema
 
 ```mermaid
-User --> Edge[Edge Server]
-Edge--> Run[Run Code]
+flowchart
+Run[Run Code]
+Edge[Edge Server]
+
+User --> Edge
+Edge --> Run
 Run --> Response
 ```
 
@@ -263,9 +270,10 @@ Run --> Response
 ## Arquitectura web moderna
 
 ```mermaid
+flowchart
 User --> CDN
 CDN --> Edge[Edge Functions]
-Edge --> Back[Backend\nDatabase]
+Edge --> Back[Backend<br>Database]
 ```
 
 ---
@@ -298,7 +306,7 @@ Edge --> Back[Backend\nDatabase]
 ##### **SPA**
 
 ```mermaid
-flowchart SPA
+flowchart
    subgraph Build [ ]
       HTMLJS["HTML<br>JS"] <-.- WB@{ shape: "braces", label: "Solo uno download"}
    end
@@ -308,24 +316,25 @@ flowchart SPA
 ##### **SSR**
 
 ```mermaid
-flowchart SSR
+flowchart
    Nav[Browser]
    Solicitud --> Servidor
    Servidor --> HTMLs[página HTML]
    HTMLs[página HTML] --> Nav
 ```
 
-##### SSG
+##### **SSG**
 
 ```mermaid
-flowchart SSG
+flowchart
    StaticHTML[Archivos HTML]
 	subgraph Build2 [Build]
 	   BuildT[Build time]
       HTML[HTML estático]
       BuildT --> HTML[HTML estático]
 	end
-   Build2 --> StaticHTML --> Browser
+   Build2 --> StaticHTML
+   StaticHTML --> Browser
 ```
 
 #### Comparativa: SPA vs SSR vs SSG
