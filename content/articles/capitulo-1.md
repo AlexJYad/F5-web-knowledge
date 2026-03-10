@@ -174,9 +174,9 @@ La plataforma ejecuta **funciones solo cuando hay una petición**.
 
 ```mermaid
 graph TD
-User --> Platform
-Platform --> Function
-Function --> Response
+   User --> Platform
+   Platform --> Function
+   Function --> Response
 ```
 
 #### Ejemplos de servicios
@@ -220,7 +220,8 @@ Red de servidores que entrega **archivos estáticos** desde el nodo más cercano
 #### Esquema
 
 ```mermaid
-User --> CDN Node --> Origin Server
+User --> CDN[CDN Node]
+CDN --> Origin Server
 ```
 
 #### Ejemplos
@@ -240,9 +241,9 @@ Ejecución de **código cercano al usuario** para reducir latencia.
 #### Esquema
 
 ```mermaid
-User --> Edge Server
-Edge Server --> Run Code
-Run Code --> Response
+User --> Edge[Edge Server]
+Edge--> Run[Run Code]
+Run --> Response
 ```
 
 #### Ejemplos
@@ -263,8 +264,8 @@ Run Code --> Response
 
 ```mermaid
 User --> CDN
-CDN --> Edge Functions
-Edge Functions --> Back[Backend\nDatabase]
+CDN --> Edge[Edge Functions]
+Edge --> Back[Backend\nDatabase]
 ```
 
 ---
@@ -333,6 +334,8 @@ SPA -.- SSR -.- SSG
 | **SSR** | Carga inicial rápida; SEO-friendly                               | Mayor carga en el servidor; cada solicitud requiere renderizado | Next.js con SSR, sitios antiguos en PHP/ASP   |
 | **SSG** | Carga muy rápida; SEO óptimo; mínima carga en el servidor        | No apto para contenido dinámico frecuente                       | Next.js con SSG, Gatsby, blogs, documentación |
 
+---
+
 ## 7. APIs en aplicaciones web
 
 ### API
@@ -340,8 +343,6 @@ SPA -.- SSR -.- SSG
 **API (Application Programming Interface)** es una interfaz que permite que **frontend y backend intercambien datos**.
 
 Normalmente la comunicación ocurre mediante **peticiones HTTP**, y los datos se envían en formato **JSON**.
-
----
 
 #### Esquema básico
 
