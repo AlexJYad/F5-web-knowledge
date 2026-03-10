@@ -335,6 +335,75 @@ SPA -.- SSR -.- SSG
 
 ## 7. APIs en aplicaciones web
 
-> TODO: explicar el papel de las APIs
+### API
+
+**API (Application Programming Interface)** es una interfaz que permite que **frontend y backend intercambien datos**.
+
+Normalmente la comunicación ocurre mediante **peticiones HTTP**, y los datos se envían en formato **JSON**.
+
+---
+
+#### Esquema básico
+
+```mermaid
+flowchart LR
+    A[Browser / Frontend]
+    B[API]
+    C[Server Logic]
+    D[Database]
+
+    A -->|HTTP Request| B
+    B --> C
+    C --> D
+    D --> C
+    C -->|JSON Response| B
+    B --> A
+```
+
+### Ejemplo de petición
+
+El frontend hace una petición al API.
+
+```
+GET /api/posts
+```
+
+Respuesta del servidor:
+
+```
+[
+  { "id": 1, "title": "Post 1" },
+  { "id": 2, "title": "Post 2" }
+]
+```
+
+### Métodos HTTP principales
+
+| Método      | Uso             |
+| ----------- | --------------- |
+| GET         | obtener datos   |
+| POST        | crear datos     |
+| PUT / PATCH | modificar datos |
+| DELETE      | eliminar datos  |
+
+### API en la arquitectura de una aplicación web
+
+```mermaid
+flowchart LR
+   A[Web App]
+   B[Mobile App]
+   C[Admin Panel]
+   D[API]
+   E[Server]
+   F[Database]
+
+   A --> D
+   B --> D
+   C --> D
+   D --> E
+   E --> F
+```
+
+Idea: un solo API puede servir varios clientes (web, aplicación móvil, panel de administración).
 
 ---
