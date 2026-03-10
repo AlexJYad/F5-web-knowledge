@@ -31,7 +31,7 @@ Cuando el usuario escribe la dirección de un sitio en el navegador, comienza un
 ### Diagrama
 
 ```mermaid
-   flowchart TD
+flowchart TD
    User --> Browser
    Browser --> DNS
    DNS --> Server
@@ -105,12 +105,12 @@ El objetivo del DNS es evitar que los usuarios tengan que memorizar direcciones 
 El sitio web funciona en **un único servidor** que está siempre activo.
 
 ```mermaid
-graph TD
-User --> Internet
-Internet --> Server
-Server --> Website
-Server --> Backend
-Server --> Database
+flowchart TD
+   User --> Internet
+   Internet --> Server
+   Server --> Website
+   Server --> Backend
+   Server --> Database
 ```
 
 #### Ejemplos de servicios
@@ -138,13 +138,13 @@ Server --> Database
 El sitio funciona en **varios servidores conectados (cluster)**.
 
 ```mermaid
-graph TD
-User --> Internet
-Internet --> Cloud
-Cloud --> Server1
-Cloud --> Server2
-Cloud --> Server3
-Cloud --> Storage
+flowchart LR
+   User --> Internet
+   Internet --> Cloud
+   Cloud --> Server1
+   Cloud --> Server2
+   Cloud --> Server3
+   Cloud --> Storage
 ```
 
 #### Ejemplos de servicios
@@ -173,7 +173,7 @@ No gestionas servidores.\
 La plataforma ejecuta **funciones solo cuando hay una petición**.
 
 ```mermaid
-graph TD
+flowchart LR
    User --> Platform
    Platform --> Function
    Function --> Response
@@ -220,11 +220,11 @@ Red de servidores que entrega **archivos estáticos** desde el nodo más cercano
 #### Esquema
 
 ```mermaid
-flowchart
-CDN[CDN Node]
-O[Origin Server]
-User --> CDN
-CDN --> O
+flowchart LR
+   CDN[CDN Node]
+   O[Origin Server]
+   User --> CDN
+   CDN --> O
 ```
 
 #### Ejemplos
@@ -244,13 +244,13 @@ Ejecución de **código cercano al usuario** para reducir latencia.
 #### Esquema
 
 ```mermaid
-flowchart
-Run[Run Code]
-Edge[Edge Server]
+flowchart LR
+   Run[Run Code]
+   Edge[Edge Server]
 
-User --> Edge
-Edge --> Run
-Run --> Response
+   User --> Edge
+   Edge --> Run
+   Run --> Response
 ```
 
 #### Ejemplos
@@ -270,7 +270,7 @@ Run --> Response
 ## Arquitectura web moderna
 
 ```mermaid
-flowchart
+flowchart LR
 User --> CDN
 CDN --> Edge[Edge Functions]
 Edge --> Back[Backend<br>Database]
@@ -306,7 +306,7 @@ Edge --> Back[Backend<br>Database]
 ##### **SPA**
 
 ```mermaid
-flowchart
+flowchart LR
    subgraph Build [ ]
       HTMLJS["HTML<br>JS"] <-.- WB@{ shape: "braces", label: "Solo uno download"}
    end
@@ -316,7 +316,7 @@ flowchart
 ##### **SSR**
 
 ```mermaid
-flowchart
+flowchart LR
    Nav[Browser]
    Solicitud --> Servidor
    Servidor --> HTMLs[página HTML]
@@ -326,7 +326,7 @@ flowchart
 ##### **SSG**
 
 ```mermaid
-flowchart
+flowchart TD
    StaticHTML[Archivos HTML]
 	subgraph Build2 [Build]
 	   BuildT[Build time]
