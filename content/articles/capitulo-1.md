@@ -167,7 +167,7 @@ flowchart LR
    A --> B
    B --> C
 
-   subgraph LR sb[Cloud Services]
+   subgraph LR Aa[Cloud Services]
       C --> D
       C --> E
       C --> F
@@ -176,6 +176,7 @@ flowchart LR
 
    classDef styleNods color:#FFFFFF, fill:#333333
    class A,B,C,D,E,F,G styleNods
+   style Aa color:#FFFFFF,fill:#A6A6A6
 ```
 
 #### Ejemplos de servicios
@@ -323,7 +324,7 @@ flowchart LR
    A(👤 User)
    B(📡 CDN)
    C(⚡ Edge Functions)
-   D(🛠️ Backend\n💾 Database)
+   D(🛠️ Backend<br>💾 Database)
 
    A --> B
    B --> C
