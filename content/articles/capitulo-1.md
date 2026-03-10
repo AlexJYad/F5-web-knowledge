@@ -167,7 +167,7 @@ flowchart LR
    A --> B
    B --> C
 
-   subgraph LR Aa[Cloud Services]
+   subgraph Aa[Cloud Services]
       C --> D
       C --> E
       C --> F
