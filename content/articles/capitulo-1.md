@@ -279,8 +279,6 @@ flowchart LR
 - Amazon CloudFront
 - Fastly
 
----
-
 ### Edge Computing
 
 **Definición:**  
