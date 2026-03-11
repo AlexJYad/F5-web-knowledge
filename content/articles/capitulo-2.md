@@ -368,3 +368,7 @@ npm run build
 - desarrollo más cómodo de aplicaciones grandes
 
 **Idea:** HMR hace que el desarrollo sea interactivo, rápido y mantiene el estado de la aplicación al cambiar el código.
+
+---
+
+![Esquema de Dependencias](../../public/img/md_article_2.png)
