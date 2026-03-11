@@ -131,6 +131,107 @@ Permiten crear **interfaces y prototipos** desde descripciones en lenguaje natur
 
 ## 2. Visual Studio Code
 
+### 2.1 Qué es un IDE
+
+**IDE (Integrated Development Environment)** — entorno de desarrollo integrado que combina todas las herramientas necesarias para escribir, ejecutar y depurar código en un solo lugar.
+
+#### Funciones principales:
+
+- **Editor de código** con resaltado de sintaxis y autocompletado
+- **Compilador/Intérprete** para ejecutar el código
+- **Depurador (debugger)** para encontrar y corregir errores
+- **Integración con sistemas de control de versiones** (Git)
+- **Gestión de proyectos y archivos**
+
+#### Ejemplos de IDE:
+
+- Visual Studio Code (VSCode)
+- IntelliJ IDEA
+- PyCharm
+- Eclipse
+
+**Idea principal:** Un IDE ayuda a programar más rápido, con menos errores y de forma más organizada.
+
+### 2.2 Cómo personalizar VSCode
+
+**Personalizar VSCode** ayuda a trabajar más rápido y de manera más cómoda.
+
+#### Principales formas de personalización:
+
+- **Tema y colores** — tema claro/oscuro, resaltado de sintaxis.
+- **Fuentes y tamaño de texto** — fuente cómoda para el código, soporte de ligaduras.
+- **Paneles e interfaz** — configurar barra lateral, terminal, minimapa de código, crear espacios de trabajo (workspaces).
+- **Snippets** — plantillas de código para insertar estructuras repetitivas rápidamente.
+- **Atajos de teclado (Shortcuts)** — combinaciones personalizadas para comandos del editor.
+- **Extensiones (Extensions)** — añaden funcionalidad: soporte de lenguajes, linters, temas, Git, Live Server, etc.
+- **Configuración de usuario y de proyecto** — User Settings (para todos los proyectos), Workspace Settings (para un proyecto específico).
+
+**Consejo:** no sobrecargar el editor con demasiadas extensiones; elegir solo las necesarias.
+
+### 2.3 Uso de extensiones que ayudan a programar
+
+**Las extensiones (Extensions)** hacen VSCode más cómodo y ayudan a programar más rápido y sin errores.
+
+#### Extensiones populares y cómo funcionan:
+
+- **ESLint** — revisa el código en busca de errores y estilo (linting). Funciona analizando el código en tiempo real y marcando problemas directamente en el editor.
+- **Prettier** — formatea el código automáticamente. Funciona al guardar el archivo o por comando, ajustando sangrías, añadiendo puntos y comas y uniformando el código.
+- **Live Server** — actualiza instantáneamente la página web al modificar el código. Funciona mediante un servidor local que vigila los cambios en los archivos.
+
+#### Cómo instalar:
+
+- Abrir el panel **Extensions** en VSCode.
+- Buscar la extensión → Instalar → Configurar si es necesario.
+
+#### Consejos:
+
+- No sobrecargar VSCode con demasiadas extensiones.
+- Elegir solo las útiles para el proyecto actual.
+- Se pueden crear conjuntos de extensiones para proyectos específicos (Workspace Settings).
+
+**Idea:** Las extensiones hacen la programación más rápida, ordenada y cómoda, indicando errores, formateando código y mostrando resultados en tiempo real.
+
+### 2.4 GitHub Copilot
+
+**GitHub Copilot** es un asistente de IA para programadores que ayuda a escribir código directamente en el editor (por ejemplo, VSCode).
+
+#### Modos de funcionamiento:
+
+- **Autocompletado (Autocomplete / Suggestions)**
+   - Sugiere la siguiente línea o bloque de código basado en lo que ya has escrito.
+   - Acelera la escritura de código, especialmente estructuras repetitivas.
+
+- **Chat Agent**
+   - Responde a instrucciones en lenguaje natural.
+   - Puede generar funciones, corregir errores y explicar el código.
+   - Diferencia con el autocompletado: entiende solicitudes en lenguaje humano, no solo predice la siguiente línea.
+
+#### Beneficios:
+
+- Ahorra tiempo.
+- Muestra ejemplos y ayuda a aprender nuevos lenguajes o bibliotecas.
+- Reduce la cantidad de errores.
+
+**Idea:** el autocompletado es una predicción inteligente de código, mientras que el chat agent es un asistente completo para escribir y corregir código.
+
+### 2.5 Model Context Protocol (MCP)
+
+**Model Context Protocol (MCP)** es un protocolo que ayuda a las inteligencias artificiales a comprender mejor los archivos y proyectos en el ordenador del usuario.
+
+#### Cómo funciona:
+
+- **Escaneo de archivos** — el sistema analiza los archivos del proyecto y sus tipos.
+- **Creación de contexto** — se genera una estructura del proyecto: archivos, funciones, clases y sus relaciones.
+- **Uso del contexto por la IA** — la IA utiliza esta información para generar código, autocompletar y explicar archivos.
+
+#### Beneficios:
+
+- La IA entiende el proyecto completo, no solo líneas individuales de código.
+- Mejora la calidad del autocompletado y las sugerencias.
+- Permite trabajar con archivos de forma más precisa.
+
+**Idea:** MCP proporciona contexto del proyecto a la IA para que pueda entender mejor el código y los archivos del usuario.
+
 ---
 
 ## 3. Node.js, npm y package.json
