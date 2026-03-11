@@ -236,9 +236,82 @@ Permiten crear **interfaces y prototipos** desde descripciones en lenguaje natur
 
 ## 3. Node.js, npm y package.json
 
-Definición: ¿Es Node.js un lenguaje de programación o un entorno de ejecución? ¿Para qué sirve en el desarrollo Frontend?
-Gestión de paquetes: ¿Qué es npm? Pon un ejemplo de un "paquete" o librería que podrías necesitar instalar para un proyecto.
-El mapa del proyecto: ¿Qué función cumple el archivo package.json? ¿Por qué es el primer archivo que debes mirar al descargar un proyecto de otra persona?
+### 3.1 Node.js
+
+**Node.js** es un **entorno de ejecución (runtime environment)** para JavaScript, no un lenguaje de programación.
+
+Permite **ejecutar JavaScript fuera del navegador**, por ejemplo en el ordenador o en un servidor.
+
+#### Cómo funciona:
+
+- Utiliza el motor **V8** (el mismo que usa Google Chrome) para ejecutar JavaScript.
+- Permite trabajar con archivos, servidores y herramientas de desarrollo.
+
+#### Uso en el desarrollo Frontend:
+
+- **Instalar librerías y paquetes** con npm.
+- **Construir proyectos** (por ejemplo Vite o Webpack).
+- **Herramientas de desarrollo** (ESLint, Prettier, TypeScript).
+- **Servidor local** para desarrollo.
+
+**Idea:** Node.js permite usar JavaScript fuera del navegador y ayuda a gestionar herramientas y dependencias del proyecto.
+
+### 3.2 Node Package Manager
+
+**npm (Node Package Manager)** es un gestor de paquetes para Node.js que permite instalar y gestionar librerías y herramientas en un proyecto.
+
+#### Qué es un paquete:
+
+Un **paquete (package)** es una librería o herramienta con código ya preparado que se puede añadir a un proyecto.
+
+#### Cómo instalar un paquete:
+
+Los paquetes se instalan desde la terminal:
+
+```bash
+npm install nombre-del-paquete
+```
+
+#### Ejemplo de paquete:
+
+- **Axios** — librería para hacer peticiones HTTP y trabajar con APIs.
+
+#### Para qué sirve npm:
+
+- instalar librerías
+- actualizar paquetes
+- gestionar dependencias del proyecto
+- ejecutar scripts de desarrollo
+
+**Idea:** npm permite a los desarrolladores usar librerías y herramientas ya existentes en lugar de escribir todo el código desde cero.
+
+### 3.3 package.json
+
+**package.json** es un archivo que contiene la información principal del proyecto y sus dependencias.
+
+#### Qué contiene package.json:
+
+- **Información del proyecto** — nombre y versión.
+- **Dependencies** — lista de librerías que usa el proyecto.
+- **Scripts** — comandos para ejecutar y construir el proyecto.
+
+#### Ejemplo de uso:
+
+El comando:
+
+```bash
+npm install
+```
+
+— instala todas las dependencias definidas en package.json.
+
+#### Por qué es el primer archivo que debes mirar:
+
+- muestra qué librerías usa el proyecto
+- muestra cómo ejecutar el proyecto
+- muestra los comandos disponibles de desarrollo
+
+**Idea:** package.json es el archivo principal de configuración que describe las dependencias y los comandos del proyecto.
 
 ---
 
@@ -246,3 +319,7 @@ El mapa del proyecto: ¿Qué función cumple el archivo package.json? ¿Por qué
 
 Qué es y para qué sirve.
 Investiga qué es el Hot Module Replacement. ¿Cómo mejora esto la experiencia del desarrollador mientras escribe código?
+
+```
+
+```
