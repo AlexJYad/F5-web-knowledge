@@ -317,9 +317,54 @@ npm install
 
 ## 4. Vite y Hot Module Replacement
 
-Qué es y para qué sirve.
-Investiga qué es el Hot Module Replacement. ¿Cómo mejora esto la experiencia del desarrollador mientras escribe código?
+### 4.1 Vite
 
+**Vite** es una herramienta moderna para el desarrollo de aplicaciones frontend.
+
+Se utiliza para **iniciar, desarrollar y construir proyectos de forma rápida**.
+
+#### Funciones principales:
+
+- **Servidor local de desarrollo** para ejecutar el proyecto.
+- **Construcción rápida del proyecto** para producción.
+- **Compatibilidad con herramientas modernas** (React, Vue, TypeScript).
+
+#### Cómo funciona:
+
+Vite utiliza **módulos ES nativos del navegador**, por lo que solo carga los archivos necesarios y arranca muy rápido.
+
+#### Comandos principales:
+
+```bash
+npm run dev
 ```
 
+— inicia el servidor de desarrollo.
+
+```bash
+npm run build
 ```
+
+— crea una versión optimizada del proyecto.
+
+**Idea:** Vite hace el desarrollo frontend más rápido y eficiente.
+
+### 4.2 Hot Module Replacement (HMR)
+
+**HMR** es una tecnología que permite **actualizar partes de la aplicación sin recargar toda la página**.
+
+#### Cómo funciona:
+
+- Vite supervisa los cambios en los archivos del proyecto
+- Cuando el código cambia, **solo se reemplaza el módulo modificado**
+- El resto de la aplicación permanece igual
+- Se conserva el estado de los componentes
+
+#### Beneficios para el desarrollador:
+
+- respuesta instantánea a los cambios
+- ahorro de tiempo
+- posibilidad de probar ideas y corregir errores rápidamente
+- desarrollo más cómodo de aplicaciones grandes
+
+**Idea:** HMR hace que el desarrollo sea interactivo, rápido y mantiene el estado de la aplicación al cambiar el código.
