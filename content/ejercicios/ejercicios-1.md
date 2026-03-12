@@ -144,4 +144,6 @@ Entre ellos hay routers de los proveedores de internet que transmiten los datos 
 
 ## 1.6 Tienda on-line
 
+![BotigaTech sitemap](../../public/img/BotigaTech.svg)
+
 [BotigaTech.xml](../../public/BotigaTech.drawio.xml)
