@@ -141,3 +141,7 @@ Entre ellos hay routers de los proveedores de internet que transmiten los datos 
    linkStyle 3,7,11,15,19 stroke:#2e7d32,stroke-width:3px
    linkStyle 4,8,12,16,20 stroke:#c62828,stroke-width:2px
 ```
+
+## 1.6 Tienda on-line
+
+[BotigaTech.xml](../../public/BotigaTech.drawio.xml)
