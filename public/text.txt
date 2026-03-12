@@ -1,29 +1,15 @@
 🌐 Internet
-
 🗄️ Server
-
 🖥️ Website
-
 🛠️ Backend
-
 💾 Database
-
 ☁️ Cloud
-
 🔗 API
-
 📤 Response
-
 📥 Request
-
 📁 HTML files
-
 ⚡ Edge Server
-
 🏃 Run Code
-
 📝 HTML
-
 📄 JSON
-
 📱 Mobile App
