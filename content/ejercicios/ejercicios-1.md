@@ -58,3 +58,7 @@ Entre ellos hay routers de los proveedores de internet que transmiten los datos 
 #### Lesson 11
 
 ![Webminal Terminal Lesson 11](../../public/img/Webminal-Terminal-L11.png)
+
+## 1.3 Archivos y Directorios
+
+![Terminal creat dir y files](../../public/img/eje-3.png)
