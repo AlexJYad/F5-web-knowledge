@@ -142,6 +142,8 @@ Entre ellos hay routers de los proveedores de internet que transmiten los datos 
    linkStyle 4,8,12,16,20 stroke:#c62828,stroke-width:2px
 ```
 
+[MermaidFlow Editor](https://www.mermaidflow.app/editor)
+
 ## 1.6 Tienda on-line
 
 ![BotigaTech sitemap](../../public/img/BotigaTech.svg)
