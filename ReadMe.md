@@ -29,10 +29,8 @@ Repositorio con mis apuntes sobre fundamentos y arquitectura de aplicaciones web
 
 ### Ejercicios
 
-#### Parte 1
-
-- [Rastreo de una Web](content/articles/capitulo-1.md)
-- ***
+1. [Rastreo de una Web](content/articles/capitulo-1.md)
+1. [Algoritmos y Diagramas](content/ejercicios/ejercicios-2.md)
 
 ## Notas
 
