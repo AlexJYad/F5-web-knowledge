@@ -244,3 +244,83 @@ flowchart TB
 
    linkStyle 5 stroke:#c62828,stroke-width:2px
 ```
+
+2.4. Menú de una aplicación
+Crea un algoritmo que muestre el siguiente menú:
+
+1. Ver perfil
+2. Editar perfil
+3. Cerrar sesión
+
+Según la opción elegida debe mostrar el mensaje correspondiente.
+
+```bush
+INICIO
+
+   MOSTRAR "Menú:"
+   MOSTRAR "1. Ver perfil"
+   MOSTRAR "2. Editar perfil"
+   MOSTRAR "3. Cerrar sesión"
+
+   LEER opcion
+
+   SWITCH opcion
+      CASO 1:
+         MOSTRAR "Perfil del usuario"
+      CASO 2:
+         MOSTRAR "Menú de edición del perfil"
+      CASO 3:
+         MOSTRAR "Cerrando sesión"
+      CASO CONTRARIO:
+         MOSTRAR "Opción no válida. Inténtalo de nuevo"
+   FIN SWITCH
+
+FIN
+```
+
+```mermaid
+flowchart TB
+   A([INICIO])
+   Z([FIN])
+
+   B[/Menú:/]
+   C[/1 Ver perfil/]
+   D[/2 Editar perfil/]
+   E[/3 Cerrar sesión/]
+   F[\opcion\]
+
+   S0{opcion}
+   S0s1[/Perfil del usuario/]
+   S0s2[/Menú de edición del perfil/]
+   S0s3[/Cerrando sesión/]
+   S0n[/Opción no válida. Inténtalo de nuevo/]
+
+
+   A --> B
+   B --> C
+   C --> D
+   D --> E
+   E --> F
+
+   F --> S0
+   S0 --> |1| S0s1 --> Z
+   S0 --> |2| S0s2 --> Z
+   S0 --> |3| S0s3 --> Z
+   S0 --> |otro| S0n --> B
+
+
+
+   classDef InFin fill:#e3f2fd,stroke:#1e88e5,stroke-width:1px
+   classDef SI fill:#e8f5e9,stroke:#43a047,stroke-width:1px
+   classDef NO fill:#fff8e1,stroke:#f9a825,stroke-width:1px
+   classDef error fill:#ffebee,stroke:#e53935,stroke-width:1px
+   classDef decision fill:#eeeeee,stroke:#616161,stroke-width:1px
+   classDef OR fill:#ffe0b2,stroke:#fb8c00,stroke-width:2px
+
+   class A,Z InFin
+   class S0 decision
+   class S0n error
+   class S0s1,S0s2,S0s3 SI
+
+   linkStyle 12 stroke:#c62828,stroke-width:2px
+```
