@@ -293,7 +293,7 @@ flowchart LR
    S0s1[/Perfil del usuario/]
    S0s2[/Menú de edición del perfil/]
    S0s3[/Cerrando sesión/]
-   S0n[/Opción no válida. Inténtalo de nuevo/]
+   S0n[/Opción no válida/]
 
 
    A --> B
@@ -302,7 +302,88 @@ flowchart LR
    S0 --> |1| S0s1 --> Z
    S0 --> |2| S0s2 --> Z
    S0 --> |3| S0s3 --> Z
-   S0 --> |otro| S0n --> B
+   S0 --> |otro| S0n --> |Inténtalo de nuevo| B
+
+
+
+   classDef InFin fill:#e3f2fd,stroke:#1e88e5,stroke-width:1px
+   classDef SI fill:#e8f5e9,stroke:#43a047,stroke-width:1px
+   classDef NO fill:#fff8e1,stroke:#f9a825,stroke-width:1px
+   classDef OR fill:#ffe0b2,stroke:#fb8c00,stroke-width:2px
+   classDef error fill:#ffebee,stroke:#e53935,stroke-width:1px
+   classDef decision fill:#eeeeee,stroke:#616161,stroke-width:1px
+
+
+   class A,Z InFin
+   class S0 decision
+   class S0n error
+   class S0s1,S0s2,S0s3 SI
+
+   linkStyle 9 stroke:#c62828,stroke-width:2px
+```
+
+## 2.5 Elegir bebida
+
+Diseña un algoritmo que:
+
+- pregunte al usuario qué bebida quiere:
+   - café
+   - té
+   - agua
+- muestre el mensaje correspondiente:
+   - "Preparando café"
+   - "Preparando té"
+   - "Sirviendo agua"
+
+```bush
+INICIO
+
+   MOSTRAR "Menú de bebidas:"
+   MOSTRAR "café"
+   MOSTRAR "té"
+   MOSTRAR "agua"
+
+   LEER bebida
+
+   SWITCH bebida
+      CASO "café":
+         MOSTRAR "Preparando café"
+      CASO "té":
+         MOSTRAR "Preparando té"
+      CASO "agua":
+         MOSTRAR "Sirviendo agua"
+      CASO CONTRARIO:
+         MOSTRAR "Esa bebida no existe. Inténtalo de nuevo"
+   FIN SWITCH
+
+FIN
+```
+
+```mermaid
+flowchart LR
+   A([INICIO])
+   Z([FIN])
+
+   B[/Menú de bebidas:
+   • café
+   • té
+   • agua/]
+   C[\LEER bebida\]
+
+   S0{¿Bebida?}
+   S0s1[/Preparando café/]
+   S0s2[/Preparando té/]
+   S0s3[/Sirviendo agua/]
+   S0n[/Esa bebida no existe/]
+
+
+   A --> B
+   B --> C
+   C --> S0
+   S0 --> |café| S0s1 --> Z
+   S0 --> |té| S0s2 --> Z
+   S0 --> |agua| S0s3 --> Z
+   S0 --> |otro| S0n --> |Inténtalo de nuevo| B
 
 
 
