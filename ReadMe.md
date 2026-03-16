@@ -30,7 +30,11 @@ Repositorio con mis apuntes sobre fundamentos y arquitectura de aplicaciones web
 ### Ejercicios
 
 1. [Rastreo de una Web](content/articles/capitulo-1.md)
-1. [Algoritmos y Diagramas](content/ejercicios/ejercicios-2.md)
+
+### Actividades
+
+1. [13 marzo 2026](content/actividad/13-marzo-2026.md)
+1. [14 marzo 2026](content/actividad/16-marzo-2026.md)
 
 ## Notas
 
