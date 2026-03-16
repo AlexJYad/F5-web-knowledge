@@ -283,13 +283,13 @@ flowchart TB
    A([INICIO])
    Z([FIN])
 
-   B[/Menú:/]
-   C[/1 Ver perfil/]
-   D[/2 Editar perfil/]
-   E[/3 Cerrar sesión/]
-   F[\opcion\]
+   B[/MOSTRAR MENÚ
+   1 Ver perfil
+   2 Editar perfil
+   3 Cerrar sesión/]
+   C[\LEER opcion\]
 
-   S0{opcion}
+   S0{¿Opción?}
    S0s1[/Perfil del usuario/]
    S0s2[/Menú de edición del perfil/]
    S0s3[/Cerrando sesión/]
@@ -298,11 +298,7 @@ flowchart TB
 
    A --> B
    B --> C
-   C --> D
-   D --> E
-   E --> F
-
-   F --> S0
+   C --> S0
    S0 --> |1| S0s1 --> Z
    S0 --> |2| S0s2 --> Z
    S0 --> |3| S0s3 --> Z
