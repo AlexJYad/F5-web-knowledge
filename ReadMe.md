@@ -29,7 +29,7 @@ Repositorio con mis apuntes sobre fundamentos y arquitectura de aplicaciones web
 
 ### Ejercicios
 
-1. [Rastreo de una Web](content/articles/capitulo-1.md)
+1. [Rastreo de una Web](content/ejercicios/ejercicios-1.md)
 
 ### Actividades
 
