@@ -1,4 +1,4 @@
 {
-   "markdown.validate.enabled": true,
+   "markdown.validate.enabled": false,
    "mdx-preview.preview.useWhiteBackground": true
 }
