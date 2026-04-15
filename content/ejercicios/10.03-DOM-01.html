@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      * {
+         box-sizing: border-box;
+         margin: 0;
+         padding: 0;
+      }
+
+      body {
+         font-family: sans-serif;
+         background: #f5f5f5;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         min-height: 100vh;
+         padding: 1rem;
+         gap: 1rem;
+      }
+
+      .card {
+         background: #fff;
+         border: 1px solid #e0e0e0;
+         border-radius: 12px;
+         padding: 2rem;
+         width: 300px;
+      }
+
+      h2 {
+         font-size: 18px;
+         font-weight: 500;
+         margin-bottom: 1.5rem;
+         color: #111;
+      }
+
+      .field {
+         margin-bottom: 1rem;
+      }
+
+      label {
+         display: block;
+         font-size: 13px;
+         color: #666;
+         margin-bottom: 6px;
+      }
+
+      .input-wrapper {
+         position: relative;
+      }
+
+      .input-prefix {
+         position: absolute;
+         left: 10px;
+         top: 50%;
+         transform: translateY(-50%);
+         color: #aaa;
+         font-size: 14px;
+         pointer-events: none;
+      }
+
+      input[type="text"] {
+         width: 100%;
+         padding: 8px 12px;
+         font-size: 14px;
+         border: 1px solid #d0d0d0;
+         border-radius: 8px;
+         outline: none;
+         transition: border-color 0.2s;
+      }
+
+      input[type="text"]:focus {
+         border-color: #888;
+      }
+
+      input.with-prefix {
+         padding-left: 26px;
+      }
+
+      button {
+         width: 100%;
+         padding: 10px;
+         font-size: 14px;
+         font-weight: 500;
+         background: #111;
+         color: #fff;
+         border: none;
+         border-radius: 8px;
+         cursor: pointer;
+         margin-top: 0.5rem;
+         transition: background 0.2s;
+      }
+
+      button:hover {
+         background: #333;
+      }
+   </style>
+</head>
+
+<body>
+   <!-- Añadimos este código -->
+   <div class="card">
+      <h2>¿Tu nombre?</h2>
+      <div class="field">
+         <label for="nombre">Nombre</label>
+         <input id="nombre" type="text" placeholder="Alex" />
+      </div>
+      <button onclick="handleSubmit()">Save</button>
+   </div>
+
+   <div class="card">
+      <p id="elemento">Esta página es <strong>muy simple</strong></p>
+   </div>
+
+
+
+   <script>
+
+      // let nombreObtenidoPorPrompt = prompt("¿Tu nombre?");
+      // const elemento = document.getElementById("elemento");
+      function handleSubmit() {
+         const nombre = document.getElementById('nombre').value.trim();
+         if (!nombre) return;
+
+         const strong = document.createElement('strong');
+         strong.textContent = nombre;
+
+         elemento.textContent = 'Hello World, ';
+         elemento.appendChild(strong);
+      }
+   </script>
+
+</body>
+
+</html>

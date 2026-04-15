@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Ejercicio DOM 2</title>
+   <style>
+      body {
+         font-family: Georgia, serif;
+         max-width: 600px;
+         margin: 60px auto;
+         padding: 0 20px;
+         background: #fff;
+         color: #222;
+         line-height: 1.8;
+      }
+
+      h1 {
+         font-size: 28px;
+         margin-bottom: 8px;
+      }
+
+      p {
+         font-size: 16px;
+         margin-bottom: 20px;
+      }
+   </style>
+</head>
+
+<body>
+
+   <h1>El mundo del código</h1>
+
+   <p id="intro">
+      JavaScript es un lenguaje de programación que nació en 1995. Hoy está en todas partes: navegadores, servidores y
+      aplicaciones móviles.
+   </p>
+
+   <p id="descripcion">
+      El DOM es la representación del documento HTML en forma de árbol. Gracias a él, podemos modificar cualquier
+      elemento de la página desde JavaScript.
+   </p>
+
+   <p id="nota">
+      Cada etiqueta HTML se convierte en un nodo del árbol. Podemos acceder a ellos, cambiar su contenido y modificar su
+      estilo de forma dinámica.
+   </p>
+
+   <p id="conclusion">
+      Practicar con el DOM es la mejor manera de entender cómo funciona la web por dentro. ¡A programar!
+   </p>
+
+   <script>
+      const intro = document.getElementById('intro')
+      intro.setAttribute("title", "hello");
+      console.log(intro.getAttribute("title"));
+
+      const descripcion = document.getElementById('descripcion')
+      descripcion.style.background = 'black';
+      descripcion.style.color = 'white';
+
+      const nota = document.getElementById('nota')
+      nota.style.fontSize = '20px';
+      nota.style.fontWeight = '700';
+      const conclusion = document.getElementById('conclusion')
+
+      const em = document.createElement('em');
+      em.textContent = "Здесь могла быть ваша реклама";
+      conclusion.appendChild(em);
+
+   </script>
+</body>
+
+</html>
